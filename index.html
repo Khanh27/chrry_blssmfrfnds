@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cherry Blossom Animation</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: #111;
+        }
+        canvas {
+            display: block;
+        }
+        #controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .control-group {
+            margin: 10px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="range"] {
+            width: 200px;
+        }
+        input[type="color"] {
+            margin-left: 10px;
+        }
+        .weather-controls {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        .rain-toggle {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            margin: 2px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .rain-toggle.active {
+            background: rgba(255,255,255,0.3);
+        }
+        .time-controls {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        #timeOfDay {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .cycle-toggle {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            margin: 2px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .cycle-toggle.active {
+            background: rgba(255,255,255,0.3);
+        }
+        .mist-toggle {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            margin: 2px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .mist-toggle.active {
+            background: rgba(255,255,255,0.3);
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <div id="controls">
+        <div class="control-group">
+            <label>Number of Petals: <span id="petalCountValue">100</span></label>
+            <input type="range" id="petalCount" min="10" max="500" value="100">
+        </div>
+        <div class="control-group">
+            <label>Petal Size: <span id="petalSizeValue">3</span></label>
+            <input type="range" id="petalSize" min="1" max="10" value="3" step="0.1">
+        </div>
+        <div class="control-group">
+            <label>Fall Speed: <span id="fallSpeedValue">1</span></label>
+            <input type="range" id="fallSpeed" min="0.1" max="5" value="1" step="0.1">
+        </div>
+        <div class="control-group">
+            <label>Wind Speed: <span id="windSpeedValue">0.5</span></label>
+            <input type="range" id="windSpeed" min="-2" max="2" value="0.5" step="0.1">
+        </div>
+        <div class="control-group">
+            <label>Petal Color:</label>
+            <input type="color" id="petalColor" value="#ffb6c1">
+        </div>
+        <div class="weather-controls">
+            <button class="rain-toggle" id="rainToggle">Toggle Rain</button>
+            <div class="control-group">
+                <label>Rain Intensity: <span id="intensityValue">1</span></label>
+                <input type="range" id="intensity" min="0.1" max="2" value="1" step="0.1">
+            </div>
+            <button class="mist-toggle" id="mistToggle">Enable Ethereal Mist</button>
+            <div class="control-group">
+                <label>Mist Intensity: <span id="mistIntensityValue">0.5</span></label>
+                <input type="range" id="mistIntensity" min="0.1" max="1" value="0.5" step="0.1">
+            </div>
+        </div>
+        <div class="time-controls">
+            <label>Time of Day: <span id="timeValue">12:00</span></label>
+            <input type="range" id="timeOfDay" min="0" max="24" value="12" step="0.1">
+            <button class="cycle-toggle" id="cycleToggle">Start Day/Night Cycle</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
